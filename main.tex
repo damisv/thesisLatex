@@ -20,11 +20,11 @@
 \pagestyle{fancy}
 \fancyhead{}
 \setlength{\headheight}{15pt}
-\fancyhead[RO,LE]{\selectlanguage{english}Project Management Web App\selectlanguage{greek}}
+\fancyhead[RO,LE]{\selectlanguage{english}iPM\selectlanguage{greek}}
 \fancyfoot{}
 \fancyfoot[LE,RO]{\thepage}
 \fancyfoot[LO,CE]{\selectlanguage{greek}Κεφάλαιο \thechapter}
-\fancyfoot[CO,RE]{\selectlanguage{greek}ΤΕΙ Κεντρικής Μακεδονίας}
+\fancyhead[CO,RE]{\selectlanguage{greek}ΤΕΙ Κεντρικής Μακεδονίας}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
@@ -36,7 +36,9 @@
 \newcommand{\dollar}{\mbox{\textdollar}}
 
 \usepackage{csquotes}
-\usepackage[style=authortitle,sorting=ynt]{biblatex}
+\usepackage[backend=biber,
+			style=authortitle,
+			sorting=ynt]{biblatex}
 \addbibresource{references.bib}
 \newcommand{\e}[1]{\foreignlanguage{english}{#1}}
 \newcommand{\pSpace}{\null\quad}
@@ -104,7 +106,7 @@
 \chapter{Εγχειρίδιο Χρήσης}
 \input{chapters/chapter05}
 
-\chapter{Συμπεράσματα}
+\chapter{Επίλογος}
 \input{chapters/conclusion}
 
 

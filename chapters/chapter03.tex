@@ -147,7 +147,7 @@
 .2 \e{socket.ts}.
 .2 \e{utils.ts}.
 }
-\pagebreak
+
 \pSpaceΣυνεχίζοντας στο κομμάτι του \e{client}, παρατηρείται η επόμενη δομή:
 \dirtree{%
 .1 \e{client}.
@@ -318,7 +318,8 @@ export class AuthService {
 export const APP_ROUTES: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full'},
   { path: 'homepage', component: HomepageComponent },
-  { path: 'app', loadChildren: './pmApp/pmapp.module#PMAppModule', canLoad: [AuthGuard]},
+  { path: 'app', loadChildren: './pmApp/pmapp.module#PMAppModule',
+  	canLoad: [AuthGuard]},
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
   { path: '**', redirectTo: 'homepage', pathMatch: 'full'},
   { path: '404', component: NotFoundRedirectComponent}
