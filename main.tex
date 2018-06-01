@@ -1,0 +1,114 @@
+\documentclass[12pt,twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{lmodern}
+\usepackage{ragged2e}
+\usepackage{dirtree}
+
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\setlength{\headheight}{15pt}
+\fancyhead[RO,LE]{\selectlanguage{english}Project Management Web App\selectlanguage{greek}}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{\selectlanguage{greek}Κεφάλαιο \thechapter}
+\fancyfoot[CO,RE]{\selectlanguage{greek}ΤΕΙ Κεντρικής Μακεδονίας}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{enumitem}
+\usepackage{listings}
+\lstset{
+  mathescape = true,
+  basicstyle = \ttfamily}
+\newcommand{\dollar}{\mbox{\textdollar}}
+
+\usepackage{csquotes}
+\usepackage[style=authortitle,sorting=ynt]{biblatex}
+\addbibresource{references.bib}
+\newcommand{\e}[1]{\foreignlanguage{english}{#1}}
+\newcommand{\pSpace}{\null\quad}
+
+\usepackage{menukeys}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+ 
+\urlstyle{same}
+
+%----------
+\title{Thesis Tutorial}
+\author{
+\textgreek{Ιωάν-Δαμιάν Αγκιντίν}
+\and
+\textgreek{Αναστάσιος Γυμνόπουλος}
+}
+
+\date{\textgreek{Οκτώβριος} 2017}
+%-------------------
+
+\begin{document}
+\selectlanguage{greek}
+
+\input{titlepage}
+
+\include{abstractGreek}
+
+\include{abstract}
+
+\chapter*{}
+\begin{FlushRight}
+Στους γονείς ...
+\end{FlushRight}
+
+\include{statement}
+
+\chapter*{Αναγνωρίσεις}
+\quadΘα θέλαμε να εκφράσουμε τις ιδιαίτερες ευχαριστίες μας στον επιβλέποντα καθηγητή Δρ. Σταύρο Βολογιαννίδη, για την εμπιστοσύνη και την καθοδήγηση που προσέφερε απλόχερα.
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\chapter{Εισαγωγή}
+\input{chapters/introduction}
+
+\chapter{Ανασκόπηση Εργαλείων}
+\input{chapters/chapter02}
+
+\chapter{\e{Project Management} Εργαλεία}
+\input{chapters/chapter03}
+
+\chapter{\e{Deploy}}
+\input{chapters/chapter04}
+
+\chapter{Εγχειρίδιο Χρήσης}
+\input{chapters/chapter05}
+
+\chapter{Συμπεράσματα}
+\input{chapters/conclusion}
+
+
+\addcontentsline{toc}{chapter}{\textgreek{Βιβλιογραφία}}
+\selectlanguage{english}
+\printbibliography
+\end{document}

@@ -1,0 +1,51 @@
+\quad Σε αυτό το κεφάλαιο καλύπτεται η διαδικασία που ακολουθήσαμε για να επιτευχθεί το \e{Deploy} της \e{web} εφαρμογής, πάνω στο διαδίκτυο.
+\section{\e{mLab}}
+\quad Το πρώτο βήμα ήταν να βρεθεί μια δωρεάν ή τουλάχιστον φθηνή και εύκολη διαδικτυακή φιλοξενία για την \e{NoSQL} βάση δεδομένων. Οι ακόλουθες λύσεις υπήρχαν την στιγμή γραφής της παρούσας εργασίας:
+\begin{itemize}
+    \item \e{\cite{hosting_db_a2}}
+    \item \e{\cite{hosting_db_mongodbatlas}}
+    \item \e{\cite{hosting_db_mLab}}
+    \item \e{\cite{hosting_db_rosehosting}}
+    \item \e{\cite{hosting_db_compose}}
+    \item \e{\cite{hosting_db_objectrocket}}
+    \item \e{\cite{hosting_db_vultr}}
+\end{itemize}
+\quad Ύστερα από πλήρης και βαθύς έρευνα αυτού του θέματος, οι δύο υπηρεσίες στις οποίες καταλήξαμε ήταν το \e{mLab} και το \e{Compose}. Συγκρίνωντας τα δύο, όσον αφορά την τιμή, εύκολη χρήση και υποστήριξη, το \e{mLab} προέκυψε ξεκάθαρα ώς καλύτερη λύση.
+\subsection*{Εγκατάσταση και σύνδεση}
+\quad Σύμφωνα με τον οδηγό που προσφέρει το \e{mLab}, η δημιουργία και σύνδεση της βάσης με την εφαρμογή επιτυγχάνεται μέσα σε τρία απλά βήματα:
+\begin{enumerate}
+    \item Δημιουργία λογαριασμού πλατφόρμας
+    \item Επιλογή συνδρομής. Για παράδειγμα, έχοντας επιλέξει \e{AWS - Amazon Web Services} και το αντίστοιχο \e{Sandbox}, η υπηρεσία είναι δωρεάν μέχρι τα 0.5 \e{GB}.
+    \item Σύνδεση με την καινούργια ΒΔ. Ο σύνδεσμος που προσφέρει την σύνδεση για χρήση, μοιάζει με το παρακάτω:\par
+    \quad \e{mongodb://\textless dbuser\textgreater:\textless dbpass\textgreater@ds012345.mlab.com:56789/mydb}
+\end{enumerate}
+
+
+\section{\e{Heroku}}
+\quad Το δεύτερο βήμα ήταν η διανομή της εφαρμογής στο διαδίκτυο. Έχοντας ήδη εμπειρία με την \e{Cloud} πλατφόρμα της \e{\cite{hosting_heroku}}, αποφασίσαμε πως ήταν η καλύτερη λύση και πάλι απο άποψη τιμής, υποστήριξης και εύκολης χρήσης.
+
+Η διαδικασία ανεβάσματος, προυποθέτει πως υπάρχει εγκατεστημένο στο σύστημα το \e{Git} και το \e{Heroku CLI}, το οποίο μπορεί να το πάρει κανείς μέσω του \e{NPM} για παράδειγμα.
+ \selectlanguage{english}
+    \begin{lstlisting}[language=command.com]
+    $\dollar$ npm install -g heroku-cli
+    \end{lstlisting}
+\selectlanguage{greek}
+\quad Στην συνέχεια, πρέπει να επιτευχθεί η σύνδεση \e{remote} με την πλατφόρμα:
+ \selectlanguage{english}
+    \begin{lstlisting}[language=command.com]
+    $\dollar$ heroku git:remote -a <APP_NAME>
+    \end{lstlisting}
+\selectlanguage{greek}
+\quad Τρέχοντας την προηγούμενη εντολή, θα ζητηθούν τα διαπιστευτήρια λογαριασμού.Ύστερα, με το συνηθησμένο 
+ \selectlanguage{english}
+    \begin{lstlisting}[language=command.com]
+    $\dollar$ git push heroku master
+    \end{lstlisting}
+\selectlanguage{greek} η εφαρμογή ανεβαίνει στον <<νέφος>>, και σε λίγα λεπτά θα είναι διαθέσιμο πρός τον έξω κόσμο.
+
+Αξίζει να σημειωθεί πως, εφόσον χρησιμοποιείται το \e{Version Control Git}, μπορεί κανείς να ανεβάσει διάφορες εκδόσεις της εφαρμογής, και να διαθέτει την πιο σταθερή οποιαδήποτε στιγμή.
+
+\subsection*{\e{GitHub}}
+\pSpaceΈνας άλλος τρόπος, ο οποίος αποδεικνύεται ευκολότερος καθώς προχωράει η ανάπτυξη μια εφαρμογής, είναι η ενσωμάτωση με το \e{GitHub} που αυτήν την στιγμή, είναι ίσως η πιό γνωστή και πιο χρησιμοποιημένη πλατφόρμα \e{Version Control}.\\
+\pSpaceΜέσω του \e{Heroku dashboard}, επιλέγωντας την εφαρμογή και \e{Deploy} μενού, ο χρήστης έχει περισσότερες επιλογές όσον αφορά το \e{Deployment}: \e{Heroku Git, GitHub, Dropbox, Container Registry}.Προχωρόντας στο \e{Github}, έχει 2 περισσότερες επιλογές: \e{Automatic Deploys} και \e{Manual Deploy}.\\
+\pSpaceΚαι στις δύο περιπτώσεις, το μόνο που έχει να κάνει ο χρήστης έιναι να ψάξει το \e{repository} μέσα απο την φόρμα που δίνεται, και να επιλέξει το \e{branch} που επιθυμεί.
